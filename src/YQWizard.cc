@@ -861,7 +861,7 @@ QLayout *YQWizard::layoutButtonBox( QWidget * parent )
     connect( _helpButton, &pclass(_helpButton)::clicked,
 	     this,	  &pclass(this)::showHelp );
 
-    hbox->addWidget( _helpButton );
+    hbox->addWidget( (QWidget *) _helpButton->widgetRep() );
 
     hbox->addSpacing( 10 );
 
