@@ -1032,6 +1032,10 @@ void YQWizard::setDialogTitle( const std::string & titleText )
 	topLevelWidget()->setWindowTitle( YQUI::ui()->applicationTitle() );
 }
 
+string YQWizard::getDialogTitle()
+{
+	return toUTF8(topLevelWidget()->windowTitle());
+}
 
 void YQWizard::setDialogHeading( const std::string & headingText )
 {
@@ -1042,6 +1046,14 @@ void YQWizard::setDialogHeading( const std::string & headingText )
 	else
 	    _dialogHeading->clear();
     }
+}
+
+string YQWizard::getDialogHeading()
+{
+	if (_dialogHeading)
+	    return toUTF8(_dialogHeading->text());
+	else
+		return "";
 }
 
 string YQWizard::debugLabel() const
@@ -1482,5 +1494,3 @@ void YQWizard::Step::setStatus( Status s )
     _nameLabel->style()->unpolish( _nameLabel );
     _nameLabel->style()->polish( _nameLabel );
 }
-
-
