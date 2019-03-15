@@ -68,7 +68,10 @@ public:
     /**
      * Constructor.
      **/
-    YQUI( bool withThreads );
+    YQUI( bool withThreads ) : YQUI (withThreads, false) {
+
+    };
+    YQUI( bool withThreads,  bool topmostConstructor );
 
     /**
      * Destructor.

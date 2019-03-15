@@ -92,13 +92,12 @@ YUI * createUI( bool withThreads )
     return YQUI::ui();
 }
 
-
-YQUI::YQUI( bool withThreads )
-    : YUI( withThreads )
+YQUI::YQUI( bool withThreads,  bool topmostConstructor )
+: YUI( withThreads )
 #if 0
-    , _main_win( NULL )
+, _main_win( NULL )
 #endif
-    , _do_exit_loop( false )
+, _do_exit_loop( false )
 {
     yuiDebug() << "YQUI constructor start" << std::endl;
     yuiMilestone() << "This is libyui-qt " << VERSION << std::endl;
@@ -114,10 +113,11 @@ YQUI::YQUI( bool withThreads )
     qInstallMessageHandler( qMessageHandler );
 
     yuiDebug() << "YQUI constructor finished" << std::endl;
-
-    topmostConstructorHasFinished();
+    if ( topmostConstructor ) {
+        yuiMilestone() << "!!! top most constructor qt " << std::endl;
+        topmostConstructorHasFinished();
+    }
 }
-
 
 void YQUI::initUI()
 {
@@ -709,5 +709,3 @@ QIcon YQUI::loadIcon( const string & iconName ) const
         yuiWarning() << "Couldn't load icon: " << iconName << std::endl;
     return icon;
 }
-
-
