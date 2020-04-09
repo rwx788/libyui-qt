@@ -223,6 +223,13 @@ void YQComboBox::textChanged( QString )
 	YQUI::ui()->sendEvent( new YWidgetEvent( this, YEvent::ValueChanged ) );
 }
 
+void YQComboBox::activate()
+{
+    if ( notify() )
+        YQUI::ui()->sendEvent( new YWidgetEvent( this, YEvent::ValueChanged ) );    
+}
+
+
 
 void YQComboBox::setInputMaxLength( int len )
 {
@@ -263,4 +270,3 @@ bool YQComboBox::setKeyboardFocus()
 
     return true;
 }
-

@@ -124,6 +124,12 @@ public:
      **/
     virtual bool setKeyboardFocus();
 
+    /**
+     * Activate selected item. Can be used in tests to simulate user input.
+     * Should be called in case selected item should affect other controls.
+     * Derived classes are required to implement this.
+     **/
+    virtual void activate();
 
 protected slots:
 
