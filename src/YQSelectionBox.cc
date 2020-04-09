@@ -385,3 +385,8 @@ void YQSelectionBox::returnDelayed()
     _timer.start( 250 ); // millisec
 }
 
+void YQSelectionBox::activate()
+{
+    if ( notify() )
+        YQUI::ui()->sendEvent( new YWidgetEvent( this, YEvent::Activated ) );
+}

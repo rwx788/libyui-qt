@@ -136,6 +136,12 @@ public:
      **/
     virtual bool eventFilter( QObject * obj, QEvent * ev );
 
+    /**
+     * Activate selected item. Can be used in tests to simulate user input.
+     * Should be called in case selected item should affect other controls.
+     **/
+    virtual void activate();
+
 
 protected slots:
 
