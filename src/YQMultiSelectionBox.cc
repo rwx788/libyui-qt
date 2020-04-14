@@ -325,6 +325,13 @@ YQMultiSelectionBox::findItem( YItem * wantedItem )
     return 0;
 }
 
+void YQMultiSelectionBox::activateItem( YItem * item )
+{
+    // send an activation event for this widget
+    if ( notify() )
+        YQUI::ui()->sendEvent( new YMenuEvent( item ) );
+}
+
 
 int YQMultiSelectionBoxItem::_item_count = 0;
 
@@ -352,4 +359,3 @@ YQMultiSelectionBoxItem::YQMultiSelectionBoxItem( YQMultiSelectionBox *	parent,
 	    setIcon( 0 /* column */, icon );
     }
 }
-

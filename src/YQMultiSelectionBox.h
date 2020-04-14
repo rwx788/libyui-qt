@@ -135,6 +135,10 @@ public:
      **/
     virtual bool setKeyboardFocus();
 
+    /**
+     * Activate selected item. Can be used in tests to simulate user input.
+     **/
+    virtual void activateItem( YItem * item );
 
 signals:
     /**
