@@ -107,13 +107,18 @@ public:
      **/
     virtual bool setKeyboardFocus();
 
+    /**
+     * Activate widget to trigger UI update. Can be used in tests to simulate user input.
+     **/
+    virtual void activate();
+
 private slots:
     /**
      * Time changed from input.
      *
      **/
     void changed ( const QTime &);
-    
+
 protected:
 
     YQWidgetCaption *	_caption;

@@ -109,6 +109,11 @@ public:
      **/
     virtual bool setKeyboardFocus();
 
+    /**
+     * Activate widget to trigger UI update. Can be used in tests to simulate user input.
+     **/
+    virtual void activate();
+
 private slots:
     /**
      * Date changed from input.

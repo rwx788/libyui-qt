@@ -131,5 +131,8 @@ void YQTimeField::changed ( const QTime& )
         YQUI::ui()->sendEvent( new YWidgetEvent( this, YEvent::ValueChanged ) );
 }
 
-
-
+void YQTimeField::activate()
+{
+    if ( notify() )
+        YQUI::ui()->sendEvent( new YWidgetEvent( this,YEvent::Activated ) );
+}

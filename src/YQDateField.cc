@@ -131,3 +131,9 @@ void YQDateField::changed ( const QDate& )
     if ( notify() )
         YQUI::ui()->sendEvent( new YWidgetEvent( this, YEvent::ValueChanged ) );
 }
+
+void YQDateField::activate()
+{
+    if ( notify() )
+        YQUI::ui()->sendEvent( new YWidgetEvent( this,YEvent::Activated ) );
+}
